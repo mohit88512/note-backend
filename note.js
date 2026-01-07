@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
-import { v4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
+
 
 const app = express();
 
@@ -25,7 +26,7 @@ app.post("/add-note",(req,res)=>{
   }
 
   let obj={
-    id:v4(),
+    id: uuidv4(),
     title,
     text,
     color
@@ -47,10 +48,4 @@ app.post("/add-note",(req,res)=>{
 
 
 
-
-
-
-
-app.listen("5010",()=>{
-  console.log("Note Backend Running")
-})
+export default app
